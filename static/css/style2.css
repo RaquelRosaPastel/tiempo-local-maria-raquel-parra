@@ -1,0 +1,63 @@
+.contenedor {
+    width: 1000px;
+    margin: 0 auto;
+    /* Flexbox */
+    display: flex;
+    justify-content: space-between;
+}
+
+.tarjeta-tiempo {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.tarjeta-tiempo img {
+    width: 180px;
+    border-radius: 50%;
+}
+
+.tarjeta-titulo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tarjeta-subtitulo {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.temperaturas {
+    margin-top: 20px;
+    /* Flexbox */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.temp-baja {
+    font-weight: bold;
+    font-size: 18px;
+    color: #0000ff;
+}
+
+.temp-alta {
+    font-weight: bold;
+    font-size: 18px;
+    color: #ff0000;
+}
+
+.cookie {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 10px;
+    /* Flexbox */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}

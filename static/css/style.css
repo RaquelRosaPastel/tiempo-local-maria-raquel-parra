@@ -1,0 +1,269 @@
+/* Variables para facilitar el manejo de colores */
+:root {
+    --primary-color: #55a8a0; /* Color de la barra de navegación */
+    --card-bg: #f8f8f8;
+    --text-dark: #333;
+    --text-light: #777;
+    --sun-color: #f7b731;
+    --rain-color: #4fc3f7;
+    --border-color: #ddd;
+    --footer-bg: #333; /* Color de fondo del footer */
+    --footer-text: #e0e0e0;
+}
+
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* Fondo blanco */
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column; /* Asegura que el body use flex para el footer */
+    min-height: 100vh;
+}
+
+/* --- BARRA DE NAVEGACIÓN SUPERIOR --- */
+.navbar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-links span {
+    margin-left: 20px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.nav-links span:hover {
+    opacity: 1;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.content-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio disponible */
+}
+
+.city-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+.city-header h2 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.temp-selector span {
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+
+.temp-selector select {
+    padding: 3px 5px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* --- TARJETAS DE PRONÓSTICO (FLEXBOX) --- */
+.forecast-cards {
+    display: flex;
+    gap: 15px; /* Espacio entre las tarjetas */
+    justify-content: space-between;
+    flex-wrap: nowrap; /* CAMBIO: Forzar una sola fila */
+    overflow-x: auto; /* Nuevo: Permite scroll horizontal en pantallas pequeñas */
+    margin-bottom: 40px; /* Espacio antes del footer/cookie banner */
+}
+
+.card {
+    background-color: var(--card-bg);
+    flex: 1 1 20%; 
+    min-width: 150px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Estilo del círculo de icono */
+.icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.sun-icon {
+    color: var(--sun-color);
+}
+
+/* NUEVO: Clase para el color de los iconos de nube/neutros */
+.cloud-icon-color {
+    color: #6c757d; 
+}
+
+.rain-drop {
+    position: absolute;
+    bottom: 15px;
+    left: 45%;
+    color: var(--rain-color);
+}
+
+.description {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Temperaturas */
+.temps {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+/* Las clases temp-min y temp-max ahora solo definen el layout base */
+.temp-min {
+    color: var(--text-light);
+}
+
+.temp-max {
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+/* --- CLASES DE COLOR PARA TEMPERATURA (Controladas por JS) --- */
+
+/* Color para temperaturas frías (< 12°) */
+.temp-fria {
+    color: #007bff !important; /* Azul */
+    font-weight: bold;
+}
+
+/* Color para temperaturas cálidas (> 26°) */
+.temp-calida {
+    color: #dc3545 !important; /* Rojo */
+    font-weight: bold;
+}
+
+/* --- COOKIE BANNER (Ajustado para flotar sobre el footer) --- */
+.cookie-banner {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    margin: 0 auto; /* Centrar */
+    margin-top: 20px; /* Separación con las tarjetas */
+    /* El margin-bottom negativo mueve el banner hacia el footer */
+    margin-bottom: -40px; 
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 10; /* Asegura que esté por encima del footer si hay superposición */
+}
+
+.cookie-content {
+    display: flex;
+    align-items: center;
+}
+
+.cookie-content i {
+    color: #6c757d;
+    margin-right: 15px;
+}
+
+.cookie-content h3 {
+    margin: 0 0 5px 0;
+}
+
+.cookie-content p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.cookie-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.accept-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.accept-btn:hover {
+    background-color: #4a8f89;
+}
+
+/* --- MENSAJE DE CONFIRMACIÓN (Oculto inicialmente, manejado por JS) --- */
+#mensaje-confirmacion {
+    position: fixed;
+    bottom: 50px; /* Encima del footer */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Inicialmente oculto, JS lo muestra */
+    z-index: 20;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px; /* Asegura separación del contenido principal */
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

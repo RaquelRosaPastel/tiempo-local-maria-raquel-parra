@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>El Tiempo - Santiago</title>
+    <!-- Autor del documento-->
+    <meta name="author" content="raquel.parra.roldan@gmail.com" />
+    <!-- Descripcion del documento-->
+    <meta name="description" content="Pagina del clima" />
+    <!-- Estilos css-->
+    <link rel="stylesheet" href="static/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">El Tiempo</div>
+      <div class="nav-links">
+        <span>Arica</span>
+        <span>Valparaíso</span>
+        <span>Valdivia</span>
+      </div>
+    </header>
+
+    <main class="content-container">
+      <div class="city-header">
+        <h2>Santiago</h2>
+        <div class="temp-selector">
+          <span>ver temperatura en</span>
+          <!-- Selector con ID para JavaScript -->
+          <select id="temp-unit-selector">
+            <option value="C">°C</option>
+            <option value="F">°F</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="forecast-cards">
+        <div class="card">
+          <h3>Hoy</h3>
+          <div class="icon-circle">
+            <!-- Aplicando la nueva clase CSS -->
+            <i class="fas fa-cloud fa-3x cloud-icon-color"></i>
+            <i class="fas fa-tint fa-lg rain-drop"></i>
+          </div>
+          <p class="description">Lluvia</p>
+          <div class="temps">
+            <!-- data-c-value guarda la temperatura original en Celsius (11°C) -->
+            <span class="temp-min" data-c-value="11">11°C</span>
+            <span class="temp-max" data-c-value="24">24°C</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Mañana</h3>
+          <div class="icon-circle">
+            <i class="fas fa-sun fa-3x sun-icon"></i>
+          </div>
+          <p class="description">Soleado</p>
+          <div class="temps">
+            <!-- data-c-value guarda la temperatura original en Celsius (27°C) -->
+            <span class="temp-min" data-c-value="19">19°C</span>
+            <span class="temp-max" data-c-value="27">27°C</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Jueves</h3>
+          <div class="icon-circle">
+            <!-- Aplicando la nueva clase CSS -->
+            <i class="fas fa-cloud fa-3x cloud-icon-color"></i>
+          </div>
+          <p class="description">Nublado</p>
+          <div class="temps">
+            <!-- data-c-value guarda la temperatura original en Celsius (16°C) -->
+            <span class="temp-min" data-c-value="16">16°C</span>
+            <span class="temp-max" data-c-value="21">21°C</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Viernes</h3>
+          <div class="icon-circle">
+            <i class="fas fa-sun fa-3x sun-icon"></i>
+          </div>
+          <p class="description">Soleado</p>
+          <div class="temps">
+            <!-- data-c-value guarda la temperatura original en Celsius (26°C) -->
+            <span class="temp-min" data-c-value="21">21°C</span>
+            <span class="temp-max" data-c-value="26">26°C</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- BANNER DE COOKIES -->
+    <div class="cookie-banner" id="cookie-banner">
+      <div class="cookie-content">
+        <i class="fas fa-cookie-bite fa-2x"></i>
+        <div>
+          <h3>Políticas de cookies</h3>
+          <p>
+            Nuestro sitio web utiliza cookies para garantizar que obtenga la
+            mejor experiencia en nuestro sitio web <a href="#">Leer más...</a>
+          </p>
+        </div>
+      </div>
+      <button class="accept-btn" id="aceptar-btn">Aceptar</button>
+    </div>
+
+    <!-- Mensaje de Confirmación (Oculto inicialmente, mostrado por JS) -->
+    <div id="mensaje-confirmacion"></div>
+
+    <!-- Pie de página (Footer) -->
+    <footer>
+      <p>
+        2025 Skillnest - Desarrollada por
+        <a href="mailto:raquel.parra.roldan@gmail.com"
+          >raquel.parra.roldan@gmail.com</a
+        >
+      </p>
+    </footer>
+
+    <!-- Enlace al JavaScript -->
+    <script src="static/js/script.js"></script>
+  </body>
+</html>
